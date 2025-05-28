@@ -23,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -57,32 +56,43 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Compose Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    //Animation
+    implementation(libs.lottie.compose)
+
+    // Load image from URL
+    implementation(libs.coil.compose)
+
+    // Swipe refresh
+    implementation(libs.accompanist.swiperefresh)
+
+    // System UI controller
+    implementation(libs.accompanist.systemuicontroller)
+
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.gson)
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
-    implementation(libs.livedata)
+    implementation(libs.logging.interceptor)
 
-
+    // Room DB
     implementation(libs.androidx.room.runtime)
-
-    // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See Add the KSP plugin to your project
     ksp(libs.androidx.room.compiler)
-
-    // optional - Kotlin Extensions and Coroutines support for Room
     implementation(libs.androidx.room.ktx)
 
-
-    // hilt
+    // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 
-
-    // dataStore
+    // DataStore
     implementation(libs.androidx.datastore.preferences)
 
+    // ProvideWindowInsets
     implementation(libs.accompanist.insets)
 
 
