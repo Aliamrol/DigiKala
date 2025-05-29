@@ -7,26 +7,29 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.digikala.navigation.BottomNavigationBar
 import com.example.digikala.navigation.SetUpNavGraph
-import com.example.digikala.ui.theme.DigiKalaTheme
+import ir.truelearn.digikala.ui.theme.DigikalaTheme
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController
 
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @SuppressLint(
+        "UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter"
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            DigiKalaTheme {
+            DigikalaTheme {
                 navController = rememberNavController()
 
 
@@ -34,10 +37,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize()
                         .systemBarsPadding(), bottomBar = {
-                        // TODO bottomBar
+                        BottomNavigationBar(navController = navController, onItemClick = {
+                            navController.navigate(it.route)
+                        })
                     }) {
                     SetUpNavGraph(navController = navController)
+
                 }
+
 
             }
 
