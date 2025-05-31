@@ -2,7 +2,6 @@ package com.example.digikala.navigation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -30,25 +29,25 @@ fun BottomNavigationBar(
 ) {
     val items = listOf(
         BottomNavItem(
-            name = "Home",
+            name = "خانه",
             route = Screens.Home.route,
             selectedIcon = painterResource(R.drawable.home_fill),
             deSelectedIcon = painterResource(R.drawable.home_outline),
         ), BottomNavItem(
-            name = "Category",
+            name = "دسته بندی",
             route = Screens.Category.route,
             selectedIcon = painterResource(R.drawable.category_fill),
             deSelectedIcon = painterResource(R.drawable.category_outline),
         ), BottomNavItem(
-            name = "Basket",
+            name = "سید خرید",
             route = Screens.Basket.route,
-            selectedIcon = painterResource(R.drawable.basket),
-            deSelectedIcon = painterResource(R.drawable.basket),
+            selectedIcon = painterResource(R.drawable.cart_fill),
+            deSelectedIcon = painterResource(R.drawable.cart_outline),
         ), BottomNavItem(
-            name = "Profile",
+            name = "پروفایل",
             route = Screens.Profile.route,
-            selectedIcon = painterResource(R.drawable.digi_profile_icon),
-            deSelectedIcon = painterResource(R.drawable.digi_profile_icon)
+            selectedIcon = painterResource(R.drawable.user_fill),
+            deSelectedIcon = painterResource(R.drawable.user_outline)
         )
     )
 
@@ -83,25 +82,25 @@ fun BottomNavigationBar(
                                     contentDescription = item.name
                                 )
                             }
-                            if (selected){
+                            if (selected) {
                                 Text(
                                     item.name,
                                     textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.h3,
+                                    style = MaterialTheme.typography.h6,
                                     fontWeight = FontWeight.Bold,
                                 )
-                            }else{
+                            } else {
                                 Text(
                                     item.name,
                                     textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.h3,
+                                    style = MaterialTheme.typography.h6,
                                     fontWeight = FontWeight.W100,
                                 )
                             }
 
                         }
-
-                    })
+                    },
+                )
             }
         }
     }
