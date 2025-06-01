@@ -1,6 +1,6 @@
 package com.example.digikala.data.remote
 
-interface ApiInterface {
+interface HomeApiInterface {
 
     //TODO api calls
 
