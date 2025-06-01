@@ -6,7 +6,7 @@ object Constants {
     const val PERSIAN_LANGUAGE = "fa"
     const val DATASTORE_NAME = "DIGIKALA_DATA_STORE"
     const val TIMEOUT_IN_SECONDS: Long = 60
-    const val BASE_URL = ""
+    const val BASE_URL = "https://truelearn-digikala.iran.liara.run/api/"
     var USER_LANGUAGE = "USER_LANGUAGE"
 
 }

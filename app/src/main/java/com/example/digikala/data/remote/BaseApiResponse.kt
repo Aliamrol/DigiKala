@@ -1,5 +1,6 @@
 package com.example.digikala.data.remote
 
+import com.example.digikala.data.model.ResponseResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.digikala.data.remote
+package com.example.digikala.data.model
 
 data class ResponseResult<T>(
     val message: String,
