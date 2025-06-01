@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -7,9 +10,16 @@ plugins {
 
 }
 
+val apiKeyPropertiesFile = rootProject.file("key.properties")
+val apiKeyProperties = Properties()
+apiKeyProperties.load(FileInputStream(apiKeyPropertiesFile))
+
 android {
     namespace = "com.example.digikala"
     compileSdk = 35
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.example.digikala"
@@ -17,6 +27,8 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "X_API_KEY", apiKeyProperties["X_API_KEY"].toString())
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

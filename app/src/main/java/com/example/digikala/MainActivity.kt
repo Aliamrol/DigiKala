@@ -46,7 +46,6 @@ class MainActivity : ComponentActivity() {
 
                 AppConfig()
 
-                log(USER_LANGUAGE)
 
                 LocaleUtils.setLocale(context = LocalContext.current, language = USER_LANGUAGE)
 
