@@ -21,11 +21,11 @@ import com.example.digikala.navigation.BottomNavigationBar
 import com.example.digikala.navigation.SetUpNavGraph
 import com.example.digikala.ui.component.AppConfig
 import com.example.digikala.ui.component.ChangeStatusBarColor
+import com.example.digikala.ui.theme.DigikalaTheme
 import com.example.digikala.utils.Constants.ENGLISH_LANGUAGE
 import com.example.digikala.utils.Constants.USER_LANGUAGE
 import com.example.digikala.utils.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint
-import ir.truelearn.digikala.ui.theme.DigikalaTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

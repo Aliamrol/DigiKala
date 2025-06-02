@@ -18,7 +18,7 @@ import androidx.navigation.NavHostController
 import com.example.digikala.R
 import com.example.digikala.navigation.Screens
 import com.example.digikala.ui.component.Loading3Dots
-import ir.truelearn.digikala.ui.theme.splashBg
+import com.example.digikala.ui.theme.splashBg
 import kotlinx.coroutines.delay
 
 @Composable

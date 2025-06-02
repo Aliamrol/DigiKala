@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import ir.truelearn.digikala.ui.theme.selectedBottomBar
+import com.example.digikala.ui.theme.selectedBottomBar
 
 @Composable
 fun BasketScreen(navController: NavHostController) {

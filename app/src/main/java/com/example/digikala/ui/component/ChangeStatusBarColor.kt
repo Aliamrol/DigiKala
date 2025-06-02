@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.digikala.navigation.Screens
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import ir.truelearn.digikala.ui.theme.Purple200
+import com.example.digikala.ui.theme.Purple200
 
 
 @Composable

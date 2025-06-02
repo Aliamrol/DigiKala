@@ -19,8 +19,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.digikala.R
-import ir.truelearn.digikala.ui.theme.selectedBottomBar
-import ir.truelearn.digikala.ui.theme.unSelectedBottomBar
+import com.example.digikala.ui.theme.selectedBottomBar
+import com.example.digikala.ui.theme.unSelectedBottomBar
 
 @Composable
 fun BottomNavigationBar(

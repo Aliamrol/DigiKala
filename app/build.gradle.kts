@@ -109,5 +109,17 @@ dependencies {
     // ProvideWindowInsets
     implementation(libs.accompanist.insets)
 
+    //Accompanist-Pager
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
+
+    //paging3
+    implementation(libs.androidx.paging.compose)
+
+    //chart
+    implementation(libs.compose)
+
+    //icon
+    implementation(libs.androidx.material.icons.extended)
 
 }

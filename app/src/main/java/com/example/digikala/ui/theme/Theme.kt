@@ -1,4 +1,4 @@
-package ir.truelearn.digikala.ui.theme
+package com.example.digikala.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
