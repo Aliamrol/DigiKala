@@ -1,15 +1,23 @@
 package com.example.digikala.ui.screens.home
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.digikala.R
 import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.data.remote.NetworkResults
 import com.example.digikala.log
+import com.example.digikala.ui.theme.DigikalaLightRed
 import com.example.digikala.viewModel.HomeViewModel
 
 @Composable
@@ -41,6 +49,49 @@ fun AmazingOfferSection(
 
         is NetworkResults.Loading -> {
             loading = true
+        }
+    }
+
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colors.DigikalaLightRed)
+    ) {
+        LazyRow(
+            modifier = Modifier
+                .background(MaterialTheme.colors.DigikalaLightRed)
+        ) {
+            item {
+                AmazingOfferCard(
+                    topImageResId = R.drawable.amazings,
+                    bottomImageResId = R.drawable.box
+                )
+            }
+            item {
+                AmazingOfferCard(
+                    topImageResId = R.drawable.amazings,
+                    bottomImageResId = R.drawable.box
+                )
+            }
+            item {
+                AmazingOfferCard(
+                    topImageResId = R.drawable.amazings,
+                    bottomImageResId = R.drawable.box
+                )
+            }
+            item {
+                AmazingOfferCard(
+                    topImageResId = R.drawable.amazings,
+                    bottomImageResId = R.drawable.box
+                )
+            }
+            item {
+                AmazingOfferCard(
+                    topImageResId = R.drawable.amazings,
+                    bottomImageResId = R.drawable.box
+                )
+            }
         }
     }
 
