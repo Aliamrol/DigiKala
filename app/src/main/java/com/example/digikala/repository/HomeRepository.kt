@@ -1,5 +1,6 @@
 package com.example.digikala.repository
 
+import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.data.model.home.Slider
 import com.example.digikala.data.remote.BaseApiResponse
 import com.example.digikala.data.remote.HomeApiInterface
@@ -12,6 +13,10 @@ class HomeRepository @Inject constructor(
 
     suspend fun getSlider(): NetworkResults<List<Slider>> = safeApiCall {
         api.getSlider()
+    }
+
+    suspend fun getAmazingItems(): NetworkResults<List<AmazingItem>> = safeApiCall {
+        api.getAmazingItems()
     }
 
 }

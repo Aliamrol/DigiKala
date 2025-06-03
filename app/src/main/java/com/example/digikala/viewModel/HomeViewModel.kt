@@ -2,6 +2,7 @@ package com.example.digikala.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.data.model.home.Slider
 import com.example.digikala.data.remote.NetworkResults
 import com.example.digikala.repository.HomeRepository
@@ -17,10 +18,30 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     val slider = MutableStateFlow<NetworkResults<List<Slider>>>(NetworkResults.Loading())
+    val amazingItems = MutableStateFlow<NetworkResults<List<AmazingItem>>>(NetworkResults.Loading())
 
-    suspend fun getSlider() {
+    fun getAllDataFromServer() {
+        viewModelScope.launch {
+            launch {
+                slider.emit(repository.getSlider())
+            }
+            launch {
+                amazingItems.emit(repository.getAmazingItems())
+            }
+
+        }
+    }
+
+
+    fun getSlider() {
         viewModelScope.launch {
             slider.emit(repository.getSlider())
+        }
+    }
+
+    fun getAmazingItems() {
+        viewModelScope.launch {
+            amazingItems.emit(repository.getAmazingItems())
         }
     }
 
