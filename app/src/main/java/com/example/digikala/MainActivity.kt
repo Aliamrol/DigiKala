@@ -40,6 +40,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
+
             DigikalaTheme {
                 navController = rememberNavController()
                 ChangeStatusBarColor(navController)
