@@ -92,6 +92,10 @@ fun AmazingOfferSection(
                     bottomImageResId = R.drawable.box
                 )
             }
+
+            item {
+                AmazingShowMoreItem()
+            }
         }
     }
 
