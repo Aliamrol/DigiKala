@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -59,40 +60,16 @@ fun AmazingOfferSection(
             .background(MaterialTheme.colors.DigikalaLightRed)
     ) {
         LazyRow(
-            modifier = Modifier
-                .background(MaterialTheme.colors.DigikalaLightRed)
+            modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)
         ) {
             item {
                 AmazingOfferCard(
-                    topImageResId = R.drawable.amazings,
-                    bottomImageResId = R.drawable.box
+                    topImageResId = R.drawable.amazings, bottomImageResId = R.drawable.box
                 )
             }
-            item {
-                AmazingOfferCard(
-                    topImageResId = R.drawable.amazings,
-                    bottomImageResId = R.drawable.box
-                )
+            items(amazingItemList) { item ->
+                AmazingItem(item = item)
             }
-            item {
-                AmazingOfferCard(
-                    topImageResId = R.drawable.amazings,
-                    bottomImageResId = R.drawable.box
-                )
-            }
-            item {
-                AmazingOfferCard(
-                    topImageResId = R.drawable.amazings,
-                    bottomImageResId = R.drawable.box
-                )
-            }
-            item {
-                AmazingOfferCard(
-                    topImageResId = R.drawable.amazings,
-                    bottomImageResId = R.drawable.box
-                )
-            }
-
             item {
                 AmazingShowMoreItem()
             }
