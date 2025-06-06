@@ -19,4 +19,8 @@ class HomeRepository @Inject constructor(
         api.getAmazingItems()
     }
 
+    suspend fun getSuperMarketAmazingItems(): NetworkResults<List<AmazingItem>> = safeApiCall {
+        api.getSuperMarketAmazingProducts()
+    }
+
 }

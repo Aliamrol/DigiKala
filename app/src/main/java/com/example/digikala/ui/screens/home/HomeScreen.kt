@@ -1,5 +1,7 @@
 package com.example.digikala.ui.screens.home
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -63,6 +65,7 @@ fun SwipeRefreshSection(viewModel: HomeViewModel, navController: NavHostControll
             item { TopSliderSection() }
             item { ShowCaseSection(navController = navController) }
             item { AmazingOfferSection() }
+            item {SuperMarketOfferSection() }
         }
     }
 

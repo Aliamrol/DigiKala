@@ -1,7 +1,5 @@
 package com.example.digikala.ui.screens.home
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -47,7 +45,6 @@ import com.example.digikala.utils.DigitHelper.applyDiscount
 import com.example.digikala.utils.DigitHelper.digitByLocate
 import com.example.digikala.utils.DigitHelper.digitByLocateAndSeparator
 
-@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun AmazingItem(item: AmazingItem) {
     Card(

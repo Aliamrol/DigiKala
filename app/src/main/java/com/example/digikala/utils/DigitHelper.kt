@@ -29,13 +29,11 @@ object DigitHelper {
         return result
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun digitBySeparator(price: String): String {
         val priceFormat = DecimalFormat("###,###")
         return priceFormat.format(Integer.valueOf(price))
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun digitByLocateAndSeparator(price: String): String {
         val priceWithoutCommas = price.replace(",", "")
         val persianDigit = digitByLocate(priceWithoutCommas)

@@ -20,15 +20,16 @@ import com.example.digikala.R
 import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.data.remote.NetworkResults
 import com.example.digikala.log
-import com.example.digikala.ui.theme.DigikalaLightRed
+import com.example.digikala.ui.theme.DigikalaLightGreen
 import com.example.digikala.viewModel.HomeViewModel
 
 @Composable
-fun AmazingOfferSection(
+fun SuperMarketOfferSection(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
 
-    var amazingItemList by remember {
+
+    var superMarketItemList by remember {
         mutableStateOf<List<AmazingItem>>(emptyList())
     }
 
@@ -36,18 +37,18 @@ fun AmazingOfferSection(
         mutableStateOf(false)
     }
 
-    val amazingItemResult by viewModel.amazingItems.collectAsState()
+    val superMarketItemResult by viewModel.superMarketItems.collectAsState()
 
-    when (amazingItemResult) {
+    when (superMarketItemResult) {
         is NetworkResults.Success -> {
-            amazingItemList = amazingItemResult.data ?: emptyList()
+            superMarketItemList = superMarketItemResult.data ?: emptyList()
             loading = false
-            log("item: ${amazingItemList[0].name}")
+            log("item: ${superMarketItemList[0].name}")
         }
 
         is NetworkResults.Error -> {
             loading = false
-            log("Amazing Offer Section Error: ${amazingItemResult.message}")
+            log("superMarket Offer Section Error: ${superMarketItemResult.message}")
         }
 
         is NetworkResults.Loading -> {
@@ -55,23 +56,25 @@ fun AmazingOfferSection(
         }
     }
 
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.DigikalaLightRed)
+            .background(MaterialTheme.colors.DigikalaLightGreen)
     ) {
         LazyRow(
-            modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)
+            modifier = Modifier.background(MaterialTheme.colors.DigikalaLightGreen)
         ) {
             item {
                 AmazingOfferCard(
-                    topImageResId = R.drawable.amazings, bottomImageResId = R.drawable.box
+                    topImageResId = R.drawable.supermarketamazings,
+                    bottomImageResId = R.drawable.fresh
                 )
             }
-            items(amazingItemList) { item ->
+
+            items(superMarketItemList) { item ->
                 AmazingItem(item = item)
             }
+
             item {
                 AmazingShowMoreItem()
             }
