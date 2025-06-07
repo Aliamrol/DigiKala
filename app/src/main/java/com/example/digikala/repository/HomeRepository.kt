@@ -32,4 +32,8 @@ class HomeRepository @Inject constructor(
         api.getCategories()
     }
 
+    suspend fun getCenterBanners(): NetworkResults<List<Slider>> = safeApiCall {
+        api.getCenterBanners()
+    }
+
 }
