@@ -4,6 +4,7 @@ import com.example.digikala.data.model.ResponseResult
 import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.data.model.home.MainCategory
 import com.example.digikala.data.model.home.Slider
+import com.example.digikala.data.model.home.StoreProduct
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -26,5 +27,8 @@ interface HomeApiInterface {
 
     @GET("v1/getCenterBanners")
     suspend fun getCenterBanners(): Response<ResponseResult<List<Slider>>>
+
+    @GET("v1/getBestsellerProducts")
+    suspend fun getBestSellerItems(): Response<ResponseResult<List<StoreProduct>>>
 
 }
