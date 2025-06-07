@@ -28,7 +28,8 @@ class HomeViewModel @Inject constructor(
     val centerBannerItems = MutableStateFlow<NetworkResults<List<Slider>>>(NetworkResults.Loading())
     val bestSellerItems =
         MutableStateFlow<NetworkResults<List<StoreProduct>>>(NetworkResults.Loading())
-
+    val mostVisitedItems =
+        MutableStateFlow<NetworkResults<List<StoreProduct>>>(NetworkResults.Loading())
 
     fun getAllDataFromServer() {
         viewModelScope.launch {
@@ -57,6 +58,10 @@ class HomeViewModel @Inject constructor(
 
             launch {
                 bestSellerItems.emit(repository.getBestSellerItems())
+            }
+
+            launch {
+                mostVisitedItems.emit(repository.getMostVisitedItems())
             }
 
         }
