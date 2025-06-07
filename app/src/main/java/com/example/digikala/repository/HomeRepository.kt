@@ -1,6 +1,7 @@
 package com.example.digikala.repository
 
 import com.example.digikala.data.model.home.AmazingItem
+import com.example.digikala.data.model.home.MainCategory
 import com.example.digikala.data.model.home.Slider
 import com.example.digikala.data.remote.BaseApiResponse
 import com.example.digikala.data.remote.HomeApiInterface
@@ -25,6 +26,10 @@ class HomeRepository @Inject constructor(
 
     suspend fun getProposalBanners(): NetworkResults<List<Slider>> = safeApiCall {
         api.getProposalBanners()
+    }
+
+    suspend fun getCategories(): NetworkResults<List<MainCategory>> = safeApiCall {
+        api.getCategories()
     }
 
 }
