@@ -11,6 +11,7 @@ object Constants {
     const val API_KEY = BuildConfig.X_API_KEY
     const val SLIDER_AUTOMATE_NEXT_PAGE_MS: Long = 3000
 
+
     var USER_LANGUAGE = "USER_LANGUAGE"
 
 
