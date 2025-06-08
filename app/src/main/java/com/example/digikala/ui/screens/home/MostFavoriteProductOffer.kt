@@ -168,7 +168,7 @@ fun MostFavoriteProductOffer(
                                     fontWeight = FontWeight.SemiBold
                                 )
 
-                                Image(
+                                Icon(
                                     painter = painterResource(R.drawable.toman),
                                     contentDescription = "",
                                     modifier = Modifier
@@ -191,6 +191,7 @@ fun MostFavoriteProductOffer(
 
             Divider(
                 modifier = Modifier
+                    .padding(start = MaterialTheme.spacing.semiMedium)
                     .width(3.dp)
                     .height((deviceInfoViewModel.screenHeight * 0.39).dp)
                     .alpha(0.4f),

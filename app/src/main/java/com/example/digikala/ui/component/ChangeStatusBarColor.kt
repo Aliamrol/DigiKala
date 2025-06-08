@@ -1,5 +1,6 @@
 package com.example.digikala.ui.component
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
@@ -17,6 +18,12 @@ fun ChangeStatusBarColor(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val systemUiController = rememberSystemUiController()
 
+    val statusBarColor = if(MaterialTheme.colors.isLight){
+        Color.White
+    }else{
+        Color.Black
+    }
+
     when (navBackStackEntry?.destination?.route) {
         Screens.Splash.route -> {
             systemUiController.setStatusBarColor(
@@ -25,7 +32,7 @@ fun ChangeStatusBarColor(
         }
 
         else -> {
-            systemUiController.setStatusBarColor(Color.White)
+            systemUiController.setStatusBarColor(statusBarColor)
         }
     }
 }

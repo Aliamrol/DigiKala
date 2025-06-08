@@ -84,7 +84,6 @@ fun TopSliderSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .height((deviceInfoViewModel.screenHeight * 0.28).dp)
-                .background(Color.White)
         ) {
             Column(
                 modifier = Modifier

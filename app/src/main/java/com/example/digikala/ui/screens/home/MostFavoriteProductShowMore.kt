@@ -32,13 +32,12 @@ fun MostFavoriteProductShowMore(
 ) {
     Column(
         modifier = Modifier
-            .size(width = (deviceInfoViewModel.screenWidth * 0.44).dp, height = (deviceInfoViewModel.screenHeight * 0.46).dp)
+            .size(width = (deviceInfoViewModel.screenWidth * 0.44).dp, height = (deviceInfoViewModel.screenHeight * 0.44).dp)
             .padding(
                 end = LocalSpacing.current.medium,
                 start = LocalSpacing.current.semiSmall,
                 top = LocalSpacing.current.semiLarge
-            )
-            .background(Color.White),
+            ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {

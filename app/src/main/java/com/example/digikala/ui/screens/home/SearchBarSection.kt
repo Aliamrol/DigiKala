@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -45,8 +44,7 @@ fun SearchBarSection(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height((deviceInfoViewModel.screenHeight * 0.08).dp)
-            .background(Color.White),
+            .height((deviceInfoViewModel.screenHeight * 0.08).dp),
         elevation = LocalElevation.current.extraSmall
     ) {
         Box(

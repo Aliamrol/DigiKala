@@ -14,11 +14,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.digikala.R
 import com.example.digikala.navigation.Screens
 import com.example.digikala.ui.component.Loading3Dots
 import com.example.digikala.ui.theme.splashBg
+import com.example.digikala.viewModel.DeviceInfoViewModel
 import kotlinx.coroutines.delay
 
 @Composable
@@ -35,7 +37,9 @@ fun SplashScreen(navController: NavHostController) {
 }
 
 @Composable
-fun Splash() {
+fun Splash(
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
     Box(
         modifier = Modifier
             .background(MaterialTheme.colors.splashBg)
@@ -43,18 +47,18 @@ fun Splash() {
         contentAlignment = Alignment.Center
     ) {
         Image(
-            modifier = Modifier.size(250.dp),
+            modifier = Modifier.size((deviceInfoViewModel.screenWidth * 0.6).dp),
             painter = painterResource(id = R.drawable.digi_logo),
             contentDescription = null
         )
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(100.dp),
+                .padding((deviceInfoViewModel.screenWidth * 0.24).dp),
             contentAlignment = Alignment.BottomCenter
         ) {
             Image(
-                modifier = Modifier.height(30.dp),
+                modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.04).dp),
                 painter = painterResource(R.drawable.digi_txt_white),
                 contentDescription = null
             )

@@ -10,26 +10,28 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.digikala.R
+import com.example.digikala.ui.theme.bottomBar
 import com.example.digikala.ui.theme.selectedBottomBar
 import com.example.digikala.ui.theme.unSelectedBottomBar
 import com.example.digikala.utils.Constants
 import com.example.digikala.utils.LocaleUtils
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
 fun BottomNavigationBar(
     navController: NavController,
-    modifier: Modifier = Modifier,
-    onItemClick: (BottomNavItem) -> Unit
+    onItemClick: (BottomNavItem) -> Unit,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
 ) {
 
     LocaleUtils.setLocale(LocalContext.current, Constants.USER_LANGUAGE)
@@ -63,7 +65,9 @@ fun BottomNavigationBar(
 
     if (showBottomBar) {
         BottomNavigation(
-            modifier = Modifier, backgroundColor = Color.White, elevation = 5.dp
+            modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.07).dp),
+            backgroundColor = MaterialTheme.colors.bottomBar,
+            elevation = 5.dp
         ) {
             items.forEachIndexed { index, item ->
                 val selected = item.route == backStackEntry.value?.destination?.route
@@ -78,13 +82,13 @@ fun BottomNavigationBar(
                         ) {
                             if (selected) {
                                 Icon(
-                                    modifier = Modifier.height(24.dp),
+                                    modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.04).dp),
                                     painter = item.selectedIcon,
                                     contentDescription = item.name,
                                 )
                             } else {
                                 Icon(
-                                    modifier = Modifier.height(24.dp),
+                                    modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.03).dp),
                                     painter = item.deSelectedIcon,
                                     contentDescription = item.name
                                 )

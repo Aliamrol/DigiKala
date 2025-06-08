@@ -165,7 +165,7 @@ fun MostDiscountedCard(
                                 fontWeight = FontWeight.SemiBold
                             )
 
-                            Image(
+                            Icon(
                                 painter = painterResource(R.drawable.toman),
                                 contentDescription = "",
                                 modifier = Modifier

@@ -37,6 +37,7 @@ import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.ui.theme.DarkCyan
 import com.example.digikala.ui.theme.DigikalaDarkRed
 import com.example.digikala.ui.theme.DigikalaLightRed
+import com.example.digikala.ui.theme.DigikalaLightRedText
 import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.extraSmall
 import com.example.digikala.ui.theme.roundedShape
@@ -73,7 +74,7 @@ fun AmazingItem(item: AmazingItem, deviceInfoViewModel: DeviceInfoViewModel = hi
                     modifier = Modifier.padding(start = MaterialTheme.spacing.small),
                     style = MaterialTheme.typography.extraSmall,
                     fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colors.DigikalaLightRed,
+                    color = MaterialTheme.colors.DigikalaLightRedText,
                 )
 
                 Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.01).dp))
@@ -173,12 +174,13 @@ fun AmazingItem(item: AmazingItem, deviceInfoViewModel: DeviceInfoViewModel = hi
                                 fontWeight = FontWeight.SemiBold
                             )
 
-                            Image(
+                            Icon(
                                 painter = painterResource(R.drawable.toman),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .size(MaterialTheme.spacing.semiLarge)
-                                    .padding(horizontal = MaterialTheme.spacing.extraSmall)
+                                    .padding(horizontal = MaterialTheme.spacing.extraSmall),
+
                             )
                         }
 
