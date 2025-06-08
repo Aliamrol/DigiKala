@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -40,6 +41,8 @@ import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.extraSmall
 import com.example.digikala.ui.theme.semiDarkText
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.utils.Constants.ENGLISH_LANGUAGE
+import com.example.digikala.utils.Constants.USER_LANGUAGE
 import com.example.digikala.utils.DigitHelper.applyDiscount
 import com.example.digikala.utils.DigitHelper.digitByLocate
 import com.example.digikala.utils.DigitHelper.digitByLocateAndSeparator
@@ -169,7 +172,7 @@ fun MostFavoriteProductOffer(
                                 )
 
                                 Icon(
-                                    painter = painterResource(R.drawable.toman),
+                                    painter = currencyChangeByLanguage(),
                                     contentDescription = "",
                                     modifier = Modifier
                                         .size(MaterialTheme.spacing.semiLarge)
@@ -201,3 +204,9 @@ fun MostFavoriteProductOffer(
     }
 
 }
+
+@Composable
+private fun currencyChangeByLanguage(): Painter =
+    if (USER_LANGUAGE == ENGLISH_LANGUAGE) painterResource(R.drawable.dollar) else painterResource(
+        R.drawable.toman
+    )

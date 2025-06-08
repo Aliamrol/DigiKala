@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikala.R
+import com.example.digikala.ui.component.IconWithRotate
 import com.example.digikala.ui.theme.DigikalaLightRed
 import com.example.digikala.ui.theme.LocalShape
 import com.example.digikala.ui.theme.LocalSpacing
@@ -31,7 +31,10 @@ import com.example.digikala.viewModel.DeviceInfoViewModel
 fun AmazingShowMoreItem(deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()) {
     Card(
         modifier = Modifier
-            .size(width = (deviceInfoViewModel.screenWidth * 0.43).dp, height = (deviceInfoViewModel.screenHeight * 0.44).dp)
+            .size(
+                width = (deviceInfoViewModel.screenWidth * 0.43).dp,
+                height = (deviceInfoViewModel.screenHeight * 0.44).dp
+            )
             .padding(
                 end = LocalSpacing.current.medium,
                 start = LocalSpacing.current.semiSmall,
@@ -45,12 +48,11 @@ fun AmazingShowMoreItem(deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.show_more),
-                contentDescription = "",
-                tint = MaterialTheme.colors.DigikalaLightRed,
-                modifier = Modifier.size((deviceInfoViewModel.screenWidth * 0.1).dp)
+            IconWithRotate(
+                painter = painterResource(R.drawable.show_more),
+                tint = MaterialTheme.colors.DigikalaLightRed
             )
+
             Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.05).dp))
             Text(
                 text = stringResource(R.string.see_all),

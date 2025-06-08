@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -36,13 +37,14 @@ import com.example.digikala.R
 import com.example.digikala.data.model.home.AmazingItem
 import com.example.digikala.ui.theme.DarkCyan
 import com.example.digikala.ui.theme.DigikalaDarkRed
-import com.example.digikala.ui.theme.DigikalaLightRed
 import com.example.digikala.ui.theme.DigikalaLightRedText
 import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.extraSmall
 import com.example.digikala.ui.theme.roundedShape
 import com.example.digikala.ui.theme.semiDarkText
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.utils.Constants.ENGLISH_LANGUAGE
+import com.example.digikala.utils.Constants.USER_LANGUAGE
 import com.example.digikala.utils.DigitHelper.applyDiscount
 import com.example.digikala.utils.DigitHelper.digitByLocate
 import com.example.digikala.utils.DigitHelper.digitByLocateAndSeparator
@@ -175,13 +177,13 @@ fun AmazingItem(item: AmazingItem, deviceInfoViewModel: DeviceInfoViewModel = hi
                             )
 
                             Icon(
-                                painter = painterResource(R.drawable.toman),
+                                painter = currencyChangeByLanguage(),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .size(MaterialTheme.spacing.semiLarge)
                                     .padding(horizontal = MaterialTheme.spacing.extraSmall),
 
-                            )
+                                )
                         }
 
                         Text(
@@ -197,3 +199,9 @@ fun AmazingItem(item: AmazingItem, deviceInfoViewModel: DeviceInfoViewModel = hi
         }
     }
 }
+
+@Composable
+private fun currencyChangeByLanguage(): Painter =
+    if (USER_LANGUAGE == ENGLISH_LANGUAGE) painterResource(R.drawable.dollar) else painterResource(
+        R.drawable.toman
+    )
