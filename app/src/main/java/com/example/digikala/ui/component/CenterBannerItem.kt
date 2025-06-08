@@ -11,17 +11,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.digikala.ui.theme.roundedShape
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
-fun CenterBannerItem(imageUrl: String) {
+fun CenterBannerItem(
+    imageUrl: String,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
     Card(
         shape = MaterialTheme.roundedShape.semiMedium,
         modifier = Modifier
             .fillMaxWidth()
-            .height(170.dp)
+            .height((deviceInfoViewModel.screenHeight * 0.27).dp)
             .padding(MaterialTheme.spacing.medium)
     ) {
         Image(

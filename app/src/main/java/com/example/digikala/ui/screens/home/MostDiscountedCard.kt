@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.digikala.R
 import com.example.digikala.data.model.home.StoreProduct
@@ -41,9 +42,14 @@ import com.example.digikala.ui.theme.spacing
 import com.example.digikala.utils.DigitHelper.applyDiscount
 import com.example.digikala.utils.DigitHelper.digitByLocate
 import com.example.digikala.utils.DigitHelper.digitByLocateAndSeparator
+import com.example.digikala.viewModel.DeviceInfoViewModel
+import okhttp3.internal.wait
 
 @Composable
-fun MostDiscountedCard(item: StoreProduct) {
+fun MostDiscountedCard(
+    item: StoreProduct,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth(0.5f),
@@ -67,7 +73,7 @@ fun MostDiscountedCard(item: StoreProduct) {
                     contentDescription = "",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(130.dp),
+                        .height((deviceInfoViewModel.screenHeight * 0.16).dp),
                     contentScale = ContentScale.Fit
                 )
             }
@@ -84,7 +90,7 @@ fun MostDiscountedCard(item: StoreProduct) {
                     text = item.name,
                     modifier = Modifier
                         .fillMaxSize()
-                        .height(48.dp)
+                        .height((deviceInfoViewModel.screenHeight * 0.06).dp)
                         .padding(horizontal = 8.dp),
                     style = MaterialTheme.typography.h6,
                     fontWeight = FontWeight.SemiBold,
@@ -93,10 +99,12 @@ fun MostDiscountedCard(item: StoreProduct) {
                     overflow = TextOverflow.Ellipsis
                 )
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.012).dp))
 
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = MaterialTheme.spacing.extraSmall),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = MaterialTheme.spacing.extraSmall),
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -105,7 +113,7 @@ fun MostDiscountedCard(item: StoreProduct) {
                         contentDescription = "",
                         tint = MaterialTheme.colors.DarkCyan,
                         modifier = Modifier
-                            .size(22.dp)
+                            .size((deviceInfoViewModel.screenWidth * 0.053).dp)
                             .padding(2.dp)
                     )
 
@@ -117,7 +125,7 @@ fun MostDiscountedCard(item: StoreProduct) {
                     )
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.012).dp))
 
                 Row(
                     modifier = Modifier
@@ -128,8 +136,8 @@ fun MostDiscountedCard(item: StoreProduct) {
                 ) {
                     Box(
                         modifier = Modifier
-                            .width(40.dp)
-                            .height(24.dp)
+                            .width((deviceInfoViewModel.screenWidth * 0.1).dp)
+                            .height((deviceInfoViewModel.screenHeight * 0.03).dp)
                             .background(
                                 color = MaterialTheme.colors.DigikalaDarkRed, shape = CircleShape
                             )

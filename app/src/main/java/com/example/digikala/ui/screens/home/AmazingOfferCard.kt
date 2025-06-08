@@ -23,18 +23,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikala.R
 import com.example.digikala.ui.theme.LocalSpacing
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
 fun AmazingOfferCard(
     topImageResId: Int,
-    bottomImageResId: Int
+    bottomImageResId: Int,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
 ) {
     Column(
         modifier = Modifier
-            .width(160.dp)
-            .height(380.dp)
+            .width((deviceInfoViewModel.screenWidth * 0.39).dp)
+            .height((deviceInfoViewModel.screenHeight * 0.47).dp)
             .padding(
                 vertical = LocalSpacing.current.medium,
                 horizontal = LocalSpacing.current.extraSmall
@@ -42,23 +45,23 @@ fun AmazingOfferCard(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Spacer(modifier = Modifier.height(60.dp))
+        Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.073).dp))
         Image(
             painterResource(id = topImageResId),
             contentDescription = "",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(95.dp)
+                .height((deviceInfoViewModel.screenHeight * 0.12).dp)
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.02).dp))
         Image(
             painterResource(id = bottomImageResId),
             contentDescription = "",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(120.dp)
+                .height((deviceInfoViewModel.screenHeight * 0.15).dp)
         )
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.05).dp))
 
         Row(
             modifier = Modifier.fillMaxSize(),

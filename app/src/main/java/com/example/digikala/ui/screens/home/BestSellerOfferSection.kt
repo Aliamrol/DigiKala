@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -31,12 +30,14 @@ import com.example.digikala.log
 import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.spacing
 import com.example.digikala.utils.DigitHelper.digitByLocate
+import com.example.digikala.viewModel.DeviceInfoViewModel
 import com.example.digikala.viewModel.HomeViewModel
 
 
 @Composable
 fun BestSellerOfferSection(
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
 ) {
     var bestSellerOfferList by remember {
         mutableStateOf<List<StoreProduct>>(emptyList())
@@ -80,7 +81,7 @@ fun BestSellerOfferSection(
             rows = GridCells.Fixed(3),
             modifier = Modifier
                 .padding(top = MaterialTheme.spacing.medium)
-                .height(250.dp),
+                .height((deviceInfoViewModel.screenHeight * 0.31).dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {

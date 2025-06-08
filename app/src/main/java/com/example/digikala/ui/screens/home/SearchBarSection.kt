@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikala.R
 import com.example.digikala.ui.theme.LocalElevation
 import com.example.digikala.ui.theme.LocalShape
@@ -33,15 +34,18 @@ import com.example.digikala.ui.theme.searchBarBg
 import com.example.digikala.ui.theme.unSelectedBottomBar
 import com.example.digikala.utils.Constants.ENGLISH_LANGUAGE
 import com.example.digikala.utils.Constants.USER_LANGUAGE
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 
 @Composable
-fun SearchBarSection() {
+fun SearchBarSection(
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(65.dp)
+            .height((deviceInfoViewModel.screenHeight * 0.08).dp)
             .background(Color.White),
         elevation = LocalElevation.current.extraSmall
     ) {
@@ -59,7 +63,9 @@ fun SearchBarSection() {
 }
 
 @Composable
-private fun SearchBarContent() {
+private fun SearchBarContent(
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
     Row(
         modifier = Modifier
             .fillMaxSize()
@@ -68,7 +74,7 @@ private fun SearchBarContent() {
         horizontalArrangement = Arrangement.Start
     ) {
         Icon(
-            modifier = Modifier.height(24.dp),
+            modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.03).dp),
             painter = painterResource(R.drawable.search),
             contentDescription = ""
         )
@@ -82,7 +88,7 @@ private fun SearchBarContent() {
         )
         Image(
             modifier = Modifier
-                .width(80.dp)
+                .width((deviceInfoViewModel.screenWidth * 0.24).dp)
                 .padding(start = 5.dp),
             painter = digikalaLogoChangeByLanguage(),
             contentDescription = ""

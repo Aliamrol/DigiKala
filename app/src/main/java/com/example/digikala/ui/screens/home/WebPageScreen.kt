@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
+import androidx.core.net.toUri
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
@@ -33,15 +34,15 @@ fun WebPageScreen(
                     ): Boolean {
                         val requestedUrl = request?.url.toString()
                         return if (requestedUrl.startsWith("http") || requestedUrl.startsWith("https")) {
-                            false // WebView خودش هندل کنه
+                            false
                         } else {
                             try {
-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(requestedUrl))
+                                val intent = Intent(Intent.ACTION_VIEW, requestedUrl.toUri())
                                 context.startActivity(intent)
                             } catch (e: Exception) {
                                 Log.e("WebView", "Unsupported URL scheme: $requestedUrl", e)
                             }
-                            true // ما هندل کردیم
+                            true
                         }
                     }
                 }

@@ -32,11 +32,12 @@ import com.example.digikala.data.remote.NetworkResults
 import com.example.digikala.log
 import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.viewModel.DeviceInfoViewModel
 import com.example.digikala.viewModel.HomeViewModel
 
 @Composable
 fun CategoryListSection(
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
 
     var categoriesList by remember {
@@ -94,9 +95,15 @@ fun CategoryListSection(
 }
 
 @Composable
-fun CircularCategoryItem(item: MainCategory) {
+fun CircularCategoryItem(
+    item: MainCategory,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
     Column(
-        modifier = Modifier.size(width = 100.dp, height = 160.dp),
+        modifier = Modifier.size(
+            width = (deviceInfoViewModel.screenWidth * 0.24).dp,
+            height = (deviceInfoViewModel.screenHeight * 0.20).dp
+        ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
@@ -104,8 +111,8 @@ fun CircularCategoryItem(item: MainCategory) {
             painter = rememberAsyncImagePainter(item.image),
             contentDescription = "",
             modifier = Modifier
-                .width(100.dp)
-                .height(100.dp)
+                .width((deviceInfoViewModel.screenWidth * 0.24).dp)
+                .height((deviceInfoViewModel.screenHeight * 0.12).dp)
                 .padding(vertical = MaterialTheme.spacing.extraSmall)
         )
 

@@ -24,11 +24,13 @@ import com.example.digikala.data.remote.NetworkResults
 import com.example.digikala.log
 import com.example.digikala.ui.theme.roundedShape
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.viewModel.DeviceInfoViewModel
 import com.example.digikala.viewModel.HomeViewModel
 
 @Composable
 fun ProposalCardSection(
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    deviceInfoViewModel : DeviceInfoViewModel = hiltViewModel()
 ) {
 
     var bannersList by remember {
@@ -61,7 +63,7 @@ fun ProposalCardSection(
         maxItemsInEachRow = 2,
         modifier = Modifier
             .fillMaxWidth()
-            .height(290.dp)
+            .height((deviceInfoViewModel.screenHeight * 0.44).dp)
             .padding(MaterialTheme.spacing.small)
     ) {
         for (item in bannersList) {
@@ -73,12 +75,12 @@ fun ProposalCardSection(
 
 
 @Composable
-fun ProposalCardItem(imgLink: Slider) {
+fun ProposalCardItem(imgLink: Slider,deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()) {
     Card(
         shape = MaterialTheme.roundedShape.semiMedium,
         modifier = Modifier
             .fillMaxWidth(0.5f)
-            .height(130.dp)
+            .height((deviceInfoViewModel.screenHeight * 0.20).dp)
             .padding(
                 horizontal = MaterialTheme.spacing.small, vertical = MaterialTheme.spacing.small
             )

@@ -22,21 +22,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikala.ui.theme.LocalShape
 import com.example.digikala.ui.theme.LocalSpacing
 import com.example.digikala.ui.theme.darkText
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
 fun RoundedIconBox(
     title: String,
     image: Painter,
     bgColor: Color = Color.Transparent,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
 ) {
 
     Column(
         modifier = Modifier
-            .width(80.dp)
+            .width((deviceInfoViewModel.screenWidth * 0.19).dp)
             .clickable {
                 onClick()
             },
@@ -50,7 +53,7 @@ fun RoundedIconBox(
             Image(
                 painter = image,
                 contentDescription = "",
-                modifier = Modifier.size(52.dp)
+                modifier = Modifier.size((deviceInfoViewModel.screenWidth * 0.12).dp)
             )
         }
 

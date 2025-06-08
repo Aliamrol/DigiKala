@@ -19,17 +19,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikala.R
 import com.example.digikala.ui.theme.DigikalaLightRed
 import com.example.digikala.ui.theme.LocalShape
 import com.example.digikala.ui.theme.LocalSpacing
 import com.example.digikala.ui.theme.darkText
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
-fun AmazingShowMoreItem() {
+fun AmazingShowMoreItem(deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()) {
     Card(
         modifier = Modifier
-            .size(width = 180.dp, height = 375.dp)
+            .size(width = (deviceInfoViewModel.screenWidth * 0.43).dp, height = (deviceInfoViewModel.screenHeight * 0.44).dp)
             .padding(
                 end = LocalSpacing.current.medium,
                 start = LocalSpacing.current.semiSmall,
@@ -47,9 +49,9 @@ fun AmazingShowMoreItem() {
                 painter = painterResource(id = R.drawable.show_more),
                 contentDescription = "",
                 tint = MaterialTheme.colors.DigikalaLightRed,
-                modifier = Modifier.size(40.dp, 40.dp)
+                modifier = Modifier.size((deviceInfoViewModel.screenWidth * 0.1).dp)
             )
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.05).dp))
             Text(
                 text = stringResource(R.string.see_all),
                 style = MaterialTheme.typography.h6,

@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.digikala.R
 import com.example.digikala.data.model.home.AmazingItem
@@ -44,12 +45,13 @@ import com.example.digikala.ui.theme.spacing
 import com.example.digikala.utils.DigitHelper.applyDiscount
 import com.example.digikala.utils.DigitHelper.digitByLocate
 import com.example.digikala.utils.DigitHelper.digitByLocateAndSeparator
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
-fun AmazingItem(item: AmazingItem) {
+fun AmazingItem(item: AmazingItem, deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()) {
     Card(
         modifier = Modifier
-            .width(170.dp)
+            .width((deviceInfoViewModel.screenWidth * 0.45).dp)
             .padding(
                 vertical = MaterialTheme.spacing.semiLarge,
                 horizontal = MaterialTheme.spacing.semiSmall
@@ -74,20 +76,20 @@ fun AmazingItem(item: AmazingItem) {
                     color = MaterialTheme.colors.DigikalaLightRed,
                 )
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.01).dp))
 
                 Image(
                     painter = rememberAsyncImagePainter(item.image),
                     contentDescription = "",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(130.dp),
+                        .height((deviceInfoViewModel.screenHeight * 0.16).dp),
                     contentScale = ContentScale.FillBounds
                 )
             }
 
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.01).dp))
 
             Column(
                 modifier = Modifier
@@ -98,7 +100,7 @@ fun AmazingItem(item: AmazingItem) {
                     text = item.name,
                     modifier = Modifier
                         .fillMaxSize()
-                        .height(48.dp)
+                        .height((deviceInfoViewModel.screenHeight * 0.06).dp)
                         .padding(horizontal = 8.dp),
                     style = MaterialTheme.typography.h6,
                     fontWeight = FontWeight.SemiBold,
@@ -107,7 +109,7 @@ fun AmazingItem(item: AmazingItem) {
                     overflow = TextOverflow.Ellipsis
                 )
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.01).dp))
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -119,7 +121,7 @@ fun AmazingItem(item: AmazingItem) {
                         contentDescription = "",
                         tint = MaterialTheme.colors.DarkCyan,
                         modifier = Modifier
-                            .size(22.dp)
+                            .size((deviceInfoViewModel.screenWidth * 0.06).dp)
                             .padding(2.dp)
                     )
 
@@ -131,7 +133,7 @@ fun AmazingItem(item: AmazingItem) {
                     )
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height((deviceInfoViewModel.screenHeight * 0.01).dp))
 
                 Row(
                     modifier = Modifier
@@ -142,8 +144,8 @@ fun AmazingItem(item: AmazingItem) {
                 ) {
                     Box(
                         modifier = Modifier
-                            .width(40.dp)
-                            .height(24.dp)
+                            .width((deviceInfoViewModel.screenWidth * 0.1).dp)
+                            .height((deviceInfoViewModel.screenHeight * 0.029).dp)
                             .background(
                                 color = MaterialTheme.colors.DigikalaDarkRed, shape = CircleShape
                             )

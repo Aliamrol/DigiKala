@@ -36,6 +36,7 @@ import com.example.digikala.ui.component.OurLoading
 import com.example.digikala.ui.theme.LocalShape
 import com.example.digikala.ui.theme.LocalSpacing
 import com.example.digikala.utils.Constants.SLIDER_AUTOMATE_NEXT_PAGE_MS
+import com.example.digikala.viewModel.DeviceInfoViewModel
 import com.example.digikala.viewModel.HomeViewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -45,7 +46,10 @@ import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
+fun TopSliderSection(
+    viewModel: HomeViewModel = hiltViewModel(),
+    deviceInfoViewModel: DeviceInfoViewModel = hiltViewModel()
+) {
 
     var sliderList by remember {
         mutableStateOf<List<Slider>>(emptyList())
@@ -74,12 +78,12 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
     }
 
     if (loading) {
-        OurLoading(811.dp, true)
+        OurLoading(deviceInfoViewModel.screenHeight.dp, true)
     } else {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height((deviceInfoViewModel.screenHeight * 0.28).dp)
                 .background(Color.White)
         ) {
             Column(

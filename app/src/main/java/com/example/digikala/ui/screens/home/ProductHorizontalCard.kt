@@ -17,19 +17,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.digikala.ui.theme.DarkCyan
 import com.example.digikala.ui.theme.darkText
 import com.example.digikala.ui.theme.extraBoldNumber
 import com.example.digikala.ui.theme.spacing
+import com.example.digikala.viewModel.DeviceInfoViewModel
 
 @Composable
 fun ProductHorizontalCard(
-    name: String, id: String, imageUrl: String
+    name: String, id: String, imageUrl: String,
+    deviceInfoViewModel : DeviceInfoViewModel = hiltViewModel()
 ) {
     Row(
         modifier = Modifier
-            .width(320.dp)
+            .width((deviceInfoViewModel.screenWidth * 0.78).dp)
             .padding(bottom = MaterialTheme.spacing.extraSmall),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
