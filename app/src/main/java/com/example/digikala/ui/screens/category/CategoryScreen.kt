@@ -1,4 +1,4 @@
-package com.example.digikala.ui.screens
+package com.example.digikala.ui.screens.category
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
