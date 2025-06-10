@@ -60,3 +60,18 @@ com.example.digikala
 
 ```
 
+
+## 📸 Screenshots
+
+
+<p align="center">
+  <img src="./screenshots/HomeScreen1.jpg" width="250"/>
+  <img src="./screenshots/HomeScreen2.jpg" width="250"/>
+  <img src="./screenshots/HomeScreen3.jpg" width="250"/>
+</p>
+
+## ▶️ Demo
+
+<p align="center">
+  <img src="./demo/HomeScreen.gif" width="320"/>
+</p>
